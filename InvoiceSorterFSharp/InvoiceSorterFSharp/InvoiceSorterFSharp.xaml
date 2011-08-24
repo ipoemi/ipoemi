@@ -1,0 +1,75 @@
+﻿<Window 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		Title="송장정렬기" Height="544" Width="650">
+	<Grid Name="mainGrid" ShowGridLines="False">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="23"/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="105"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+		<Menu Grid.Row="0" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 0 0 0" Name="mainMenu">
+			<MenuItem Header="메뉴" AllowDrop="True">
+				<MenuItem Name="mainMenuExit" Header="종료"/>
+			</MenuItem>
+			<MenuItem Name="mainMenuHelp" Header="도움말"/>
+		</Menu>
+		<TextBlock Grid.Row="1" Margin="5 0 0 5" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">송장 관련파일</TextBlock>
+		<Border Grid.Row="1" BorderThickness="1" BorderBrush="Black" Margin="2 20 2 2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="100"/>
+				</Grid.ColumnDefinitions>
+				<ListBox Grid.Column="0" Name="invoiceFileList" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" />
+				<Button Grid.Column="1" Name="invoiceSelector" Content="선택"></Button>
+			</Grid>
+		</Border>
+		<TextBlock Grid.Row="2" Margin="5 0 0 5" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">명세서 관련파일</TextBlock>
+		<Border Grid.Row="2" BorderThickness="1" BorderBrush="Black" Margin="2 20 2 2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="100"/>
+				</Grid.ColumnDefinitions>
+				<ListBox Grid.Column="0" Name="detailFileList" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" />
+				<Button Grid.Column="1" Name="detailSelector" Content="선택"></Button>
+			</Grid>
+		</Border>
+		<TextBlock Grid.Row="3" Margin="5 0 0 5" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">저장폴더</TextBlock>
+		<Border Grid.Row="3" BorderThickness="1" BorderBrush="Black" Margin="2 20 2 2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="100"/>
+				</Grid.ColumnDefinitions>
+				<TextBox Grid.Column="0" Name="outputFolder" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" IsReadOnly="True" Focusable="False" Text=""/>
+				<Button Grid.Column="1" Name="outputFolderSelector" Content="선택"></Button>
+			</Grid>
+		</Border>
+		<StackPanel Grid.Row="4" Margin="2 2 2 2">
+			<TextBlock Margin="5 0 0 0" VerticalAlignment="Center">송장</TextBlock>
+			<Border BorderThickness="1" BorderBrush="Black">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Margin="10 0 0 0" VerticalAlignment="Center">정렬항목 위치정보 1</TextBlock>
+					<TextBox Name="invoicePosition1" Width="150" Margin="5 5 5 5" BorderThickness="1 1 1 1" Text="354.33 184.25 MS" />
+					<TextBlock Margin="50 0 0 0" VerticalAlignment="Center">정렬항목 위치정보 2</TextBlock>
+					<TextBox Name="invoicePosition2" Width="150" Margin="5 5 5 5" BorderThickness="1 1 1 1" Text="62.36 153.07 MS" />
+				</StackPanel>
+			</Border>
+			<TextBlock Margin="5 0 0 0">명세서</TextBlock>
+			<Border BorderThickness="1" BorderBrush="Black">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Margin="10 0 0 0" VerticalAlignment="Center">정렬항목 위치정보 1</TextBlock>
+					<TextBox Name="detailPosition1" Width="150" Margin="5 5 5 5" BorderThickness="1 1 1 1" Text="34.02 447.98 MS"/>
+					<TextBlock Margin="50 0 0 0" VerticalAlignment="Center">정렬항목 위치정보 2</TextBlock>
+					<TextBox Name="detailPosition2" Width="150" Margin="5 5 5 5" BorderThickness="1 1 1 1" Text="45.35 657.80 MS"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+		<Button Name="save" Grid.Row="5" Margin="5 5 5 5">변환</Button>
+	</Grid>
+</Window> 
